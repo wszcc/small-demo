@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>立方体</title>
+    <script src=""></script>
+    <style>
+        html{
+            perspective: 800px;
+            /* background-image: url(./img/7.png); */
+            background-size: 100%;
+        }
+      
+        .code{
+            width: 200px;
+            height: 200px;
+           
+            margin: 200px auto;
+            transform-style: preserve-3d;
+            animation: run 5s infinite linear;
+            
+        }
+        .code > div{
+            width: 200px;
+            height: 200px;
+            opacity: .8;
+            position: absolute;
+          
+        }
+        .code img{
+            width: 200px;
+            height: 200px;
+            vertical-align: top;
+        }
+        .box1{
+            transform: rotateY(90deg) translateZ(100px);
+        }
+        .box2{
+            transform: rotateY(-90deg) translateZ(100px);
+        }
+        .box3{
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        .box4{
+            transform: rotateX(-90deg) translateZ(100px);
+        }
+        .box5{
+            transform: rotateY(180deg) translateZ(100px);
+        }
+        .box6{
+            transform: translateZ(100px);
+        }
+        @keyframes run{
+            from{
+                transform: rotateX(0) rotateZ(0);
+            }
+            to{
+                transform: rotateX(360deg) rotateZ(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="code">
+        <div class="box1">
+            <img src="../立方体/img/3.png" alt="">
+        </div>
+        <div class="box2">
+            <img src="../立方体/img/5.png" alt="">
+        </div>
+        <div class="box3">
+            <img src="../立方体/img/1.png" alt="">
+        </div>
+        <div class="box4">
+            <img src="../立方体/img/4.png" alt="">
+        </div>
+        <div class="box5">
+            <img src="../立方体/img/2.png" alt="">
+        </div>
+        <div class="box6">
+            <img src="../立方体/img/6.png" alt="">
+        </div>
+    </div>
+</body>
+</html>
