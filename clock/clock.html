@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>My clock</title>
+    <style>
+        .clock{
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            margin-top: 50px;
+            border-radius: 50%;
+            border: 10px solid black;
+            position: relative;
+            background-image: url(./img/表盘.png);
+            background-size: 100%;
+        }
+        .hour-wapper{
+            width: 70%;
+            height: 70%;
+            animation: run 86400s infinite linear;
+        }
+        .min-wapper{
+            width: 80%;
+            height: 80%;
+            animation: run 3600s infinite linear;
+        }
+        .sec-wapper{
+            width: 90%;
+            height: 95%;
+            animation: run 60s steps(60) infinite;
+        }
+        .clock > div{
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            bottom: 0px;
+            right: 0px;
+            margin: auto;
+        }
+        .hour{
+            height: 50%;
+            width: 6px;
+            background-color: black;
+            margin: 0 auto;
+        }
+        .min{
+            width: 4px;
+            background-color: black;
+            height: 50%;
+            margin: 0 auto;
+        }
+        .sec{
+            width: 2px;
+            height: 50%;
+            background-color: red;
+            margin: 0 auto;
+        }
+        @keyframes run
+        {
+            from{
+                transform: rotate(0);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="clock">
+        <div class="hour-wapper">
+            <div class="hour"></div>
+        </div>
+        <div class="min-wapper">
+            <div class="min"></div>
+        </div>
+        <div class="sec-wapper">
+            <div class="sec"></div>
+        </div>
+    </div>
+        <audio src="./vedio/一叶 莫倾辰 - 吹梦到西洲.mp3" ></audio>
+</body>
+</html>
