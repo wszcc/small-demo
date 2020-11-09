@@ -1,0 +1,36 @@
+<!-- checkbox的v-model：
+1.一个checkbox，v-model绑定一个变量：绑定的就是checked属性
+2.一个checkbox，v-model绑定的是一个数组，绑定的就是value属性
+3.多个checkbox，v-model绑定的是一个变量，绑定的就是checked属性
+4.多个checkbox，v-model绑定的是一个数组，绑定的就是value属性 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <form action="">
+            <input type="checkbox" value='agree' v-model='agree'>同意协议
+            <input type="checkbox" value="agree1" v-model='agree'>同意协议
+            <input type="checkbox" value="agree2" v-model='agree'>同意协议
+            <input type="checkbox" value="agree3" v-model='agree'>同意协议
+            <input type="checkbox" value="agree4" v-model='agree'>同意协议
+        </form>
+        <h3>{{agree}}</h3>
+    </div>
+   
+    <script src="../vue.js"></script>
+    <script>
+        let app=new Vue({
+            el:'#app',
+            data:{
+                agree:[]
+            }
+        })
+    </script>
+</body>
+</html>

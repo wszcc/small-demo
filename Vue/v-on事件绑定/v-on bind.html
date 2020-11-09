@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on-bind</title>
+</head>
+<body>
+    <div id="app">
+      
+        <button @click='btn1click(123)'>  只要参数，不要事件对象</button>
+        
+        <button @click='btn2click'>只要实践对象，不要参数</button>
+        
+        <button @click='btn3click(123,$event)'>参数和事件对象都要</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let app=new Vue({
+            el:'#app',
+            data:{
+                message:'你好啊！'
+            },
+            methods: {
+                btn1click(a){
+                    console.log(a)
+                },
+                btn2click(event){
+                    console.log(event)
+                },
+                btn3click(a,event){
+                    console.log(a,event)
+                },
+            },
+        })
+    </script>
+</body>
+</html>

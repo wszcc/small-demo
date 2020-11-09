@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>refs</title>
+</head>
+<body>
+    <div id="app">
+        <mycpn></mycpn>
+        <mycpn></mycpn>
+        <mycpn ref="refid"></mycpn>
+        <button @click='btnClick'>按钮</button>
+    </div>
+    <template id="cpn">
+        <div>
+            <h3>我是子组件</h3>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        const cpn={
+            template:'#cpn',
+            data() {
+                return {
+                    message:'hello!'
+                }
+            },
+            methods: {
+                showMessage(){
+                    console.log('showMessage')
+                }
+            },
+        }
+        let app=new Vue({
+            el:'#app',
+            data() {
+                return {
+                    
+                }
+            },
+            components:{
+                mycpn:cpn
+            },
+            methods:{
+                btnClick(){
+                    console.log(this.$refs.refid.message)
+                    console.log(this.$refs.refid.showMessage)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

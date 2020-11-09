@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slot基本使用</title>
+</head>
+<body>
+    <div id="app">
+        <cpn><button>按钮</button></cpn>
+        <cpn><span>哈哈哈哈</span></cpn>
+        <cpn></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h3>我是组件</h3>
+            <slot><h4>我是默认值</h4></slot>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        Vue.component('cpn',{
+                    template:'#cpn',
+                })
+        const app=new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

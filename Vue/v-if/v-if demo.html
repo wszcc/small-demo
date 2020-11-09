@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if demo</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-if='isshow'>
+            <span>用户名：</span>
+            <label for="username"></label>
+            <input type="text" placeholder="用户名：">
+        </div>
+       
+        <div v-else>
+            <span>邮箱：</span>
+            <label for="email"></label>
+            <input type="text" placeholder="email">
+        </div>
+        <button @click='fn'>改变方式</button>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        let app=new Vue({
+            el:'#app',
+            data:{
+                isshow:true
+            },
+            methods: {
+                fn(){
+                    this.isshow=!this.isshow
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

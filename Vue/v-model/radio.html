@@ -1,0 +1,32 @@
+<!-- radio的v-model完全是和value绑定在一起的 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>radio和v-model</title>
+</head>
+<body>
+    <div id="app">
+        <form action="/vue.js">
+            <label for="man">
+                <input type="radio" name="sex" value="男" v-model='sex'>男
+            </label>
+            <label for="woman">
+                <input type="radio" name="sex" value="女" v-model='sex'>女
+            </label>
+        </form>
+        <h3>你选择的性别是：{{sex}}</h3>
+    </div>
+    
+    <script src="../vue.js"></script>
+    <script>
+        let app=new Vue({
+            el:'#app',
+            data:{
+                sex:'男'
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slot基本使用</title>
+</head>
+<body>
+    <div id="app">
+        <cpn><button slot="left">按钮</button><span slot="right">替换右边</span></cpn>
+        <cpn><span slot="center">替换中间</span></cpn>
+        <cpn><span slot="right">替换右边</span></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h3>我是组件</h3>
+            <slot name='left'>左边</slot>
+            <slot name='center'>中间</slot>
+            <slot name='right'>右边</slot>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        Vue.component('cpn',{
+                    template:'#cpn',
+                })
+        const app=new Vue({
+            el:'#app'
+        })
+    </script>
+</body>
+</html>

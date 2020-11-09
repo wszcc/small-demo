@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>com-demo</title>
+</head>
+<body>
+    <div id="app">
+       <my-com></my-com>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        //1.创建组件
+        //2.注册逐渐
+        const com=Vue.extend({
+            template:` <div>
+            <h3>我是标题</h3>
+            <p>哈哈哈</p>
+            <p>哈哈哈</p>
+            <p>哈哈哈</p>
+            <p>哈哈哈</p>
+        </div>`
+        })
+        Vue.component('my-com',com)
+        let app=new Vue({
+            el:'#app',
+            data:{
+                message:'你好啊！'
+            }
+        })
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>component</title>
+</head>
+<body>
+    <div id="app">
+        <my-com></my-com>
+    </div>
+    <script src="../vue.js"></script>
+    <script>
+        const com=Vue.extend({
+            template:`<div>
+            <h3>我是标题</h3>
+            <p>哈哈哈</p>
+            <p>哈哈哈</p>
+            <p>哈哈哈</p>
+            <p>哈哈哈</p>
+        </div>`
+        })  
+        Vue.component('my-com',com)
+        let app=new Vue({
+            el:'#app',
+            data:{
+                message:'你好啊！'
+            }
+        })
+    </script>
+</body>
+</html>

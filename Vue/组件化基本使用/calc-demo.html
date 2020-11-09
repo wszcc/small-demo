@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc-demo</title>
+</head>
+<body>
+    <div id="app">
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+        <my-cpn></my-cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h3>当前计数：{{counter}}</h3>
+            <button @click='add'>+</button>
+            <button @click='sub'>-</button>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        Vue.component('my-cpn',{
+            template:'#cpn',
+            data(){
+                return {
+                    counter:0
+                }
+            },
+            methods: {
+                add(){
+                    this.counter++
+                },
+                sub(){
+                    this.counter--
+                }
+            },
+        })
+        let app= new Vue({
+            el:'#app',
+            data:{
+                message:'你好啊！'
+            }
+        })
+    </script>
+</body>
+</html>

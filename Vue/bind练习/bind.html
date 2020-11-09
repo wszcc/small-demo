@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bind demo</title>
+    <style>
+        .active{
+            color: red;
+        }
+        li{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <ul id="app">
+        <li v-for='(item,index) in movies' :class="{active:index===currentindex}" v-on:click='changecolor(index)'>{{item}}</li>
+    </ul>
+    <script src="../vue.js"></script>
+    <script>
+        let app= new Vue({
+            el:'#app',
+            data:{
+                movies:['海王','复仇者联盟','天气之子','你的名字'],
+               currentindex:0
+            },methods: {
+                changecolor:function(index){
+                    this.currentindex=index
+                }
+            },
+        })
+    </script>
+</body>
+</html>
