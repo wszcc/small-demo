@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Document</title>
+	<style type="text/css">
+		* {
+			padding: 0px;
+			margin: 0px;
+			list-style: none;
+		}
+
+		#outer {
+			width: 520px;
+			height: 500px;
+			margin: 50px auto;
+			position: relative;
+			overflow: hidden;
+		}
+
+		#outer ul {
+			width: 3250px;
+			position: absolute;
+
+		}
+
+		#outer ul li {
+			float: left;
+		}
+
+		#alist {
+			position: absolute;
+			left: 230px;
+			top: 250px;
+		}
+
+		#alist .thea {
+			width: 7px;
+			height: 7px;
+			background-color: white;
+			border-radius: 50%;
+			float: left;
+			margin-right: 5px;
+			border: 1px solid black;
+		}
+
+		#alist a:hover {
+			background-color: black;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload = function () {
+			var index = 0;
+			var timer;
+			var timer1;
+			var imglist = document.getElementById("imglist");
+			var img = document.getElementsByTagName("img");
+			var alla = document.getElementsByTagName("a");
+			imglist.style.width = img.length * 520 + "px";
+			alla[index].style.backgroundColor = "black";
+			for (var i = 0; i < alla.length; i++) {
+				alla[i].num = i;
+				alla[i].onclick = function () {
+					clearInterval(timer1);
+					index = this.num;
+					//					imglist.style.left=-index*520+"px";
+					move(imglist, -520 * index, 50);
+					autochange();
+					seta();
+				};
+				clearInterval(timer);
+			}
+			autochange();
+			function autochange() {
+
+				timer1 = setInterval(function () {
+					index++;
+					if (index == img.length) {
+						index = 0;
+						imglist.style.left = 0;
+					}
+					seta();
+					move(imglist, -index * 520, 100);
+
+				}, 3000);
+
+			};
+			function seta() {
+				if (index >= img.length - 1) {
+					index = 0;
+					imglist.style.left = 0;
+				}
+				for (var i = 0; i < alla.length; i++) {
+					alla[i].style.backgroundColor = "";
+				}
+				alla[index].style.backgroundColor = "black";
+			};
+			function move(obj, target, speed) {
+				clearInterval(timer);
+				var current = parseInt(getstyle(obj, "left"));
+				if (current > target) {
+					speed = -speed;
+				}
+				timer = setInterval(function () {
+					var oldvalue = parseInt(getstyle(obj, "left"));
+					var newvalue = oldvalue + speed;
+					if (speed < 0 && newvalue < target || speed > 0 && newvalue > target) {
+						newvalue = target;
+					}
+					obj.style.left = newvalue + "px";
+					if (newvalue == target) {
+						clearInterval(timer);
+					}
+				}, 30);
+			};
+			function getstyle(obj, name) {
+				if (window.getComputedStyle) {
+					return getComputedStyle(obj, null)[name];
+				} else {
+					return obj.currentStyle[name];
+				}
+			};
+		};
+	</script>
+</head>
+
+<body>
+	<div id="outer">
+		<ul id="imglist">
+			<li><img src="img/1.png" /></li>
+			<li><img src="img/2.png" /></li>
+			<li><img src="img/3.png" /></li>
+			<li><img src="img/4.png" /></li>
+			<li><img src="img/5.png" /></li>
+			<li><img src="img/1.png" /></li>
+		</ul>
+		<div id="alist">
+			<a class="thea" href="javascript:;"></a>
+			<a class="thea" href="javascript:;"></a>
+			<a class="thea" href="javascript:;"></a>
+			<a class="thea" href="javascript:;"></a>
+			<a class="thea" href="javascript:;"></a>
+		</div>
+	</div>
+</body>
+
+</html>
